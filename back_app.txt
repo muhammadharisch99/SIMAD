@@ -1,0 +1,26 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Apps extends CI_Controller {
+	function __construct(){
+		parent::__construct();
+		
+		$this->load->helper('URL');
+		$this->load->database();
+		
+	}
+	
+	function index(){	
+		$data['konten'] = 'tampil/t_tampil/home';
+		$this->load->view('temp_1', $data);
+	}
+
+	function t_prop(){
+		$data['konten'] = 'tampil/t_tampil/t_m_prop';
+		$this->load->view('temp_1', $data);
+		$db = $this->model_1->getmhs();
+		$this->load->view('tampil/t_prop',array('db' => $db));
+	}
+
+
+}
